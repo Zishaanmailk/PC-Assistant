@@ -6,7 +6,7 @@ import sounddevice as sd
 import numpy as np
 
 # Load Whisper model
-model = whisper.load_model("small")  # You can change to "base", "small", "medium", or "large"
+model = whisper.load_model("base")  # You can change to "base", "small", "medium", or "large"
 
 def speak(text):
     engine = pyttsx3.init()
@@ -53,8 +53,8 @@ app_open = {
 }
 
 app_close = {
-    "google": "https://www.google.com",
-    "youtube": "https://www.youtube.com",
+    "google": "chrome.exe",
+    "youtube": "chrome.exe",
     "camera":  "WindowsCamera.exe",
     "windows store":  "WinStore.App.exe",
     "notepad":  "notepad.exe",
@@ -94,7 +94,7 @@ while True:
                         print(f"Error: {e}")
                 elif action == "close" and key in app_close:
                     app = app_close[key]
-                    result = os.system(f"taskkill /f /im {app}")
+                    result = os.system(f"taskkill.exe /f /im {app}")
                     if result == 0:
                         speak(f"Closed {key}")
                     else:

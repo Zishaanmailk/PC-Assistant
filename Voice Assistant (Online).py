@@ -27,7 +27,7 @@ def listen():
             return "Speech service is currently unavailable."
 
 # Start message
-d = "hey doctor knight"
+d = "hey Zishaanmalik"
 speak(d)
 
 # App launch paths or URLs
@@ -48,8 +48,8 @@ app_open = {
 }
 
 app_close = {
-    "google": "https://www.google.com",
-    "youtube": "https://www.youtube.com",
+    "google": "chrome.exe",
+    "youtube": "chrome.exe",
     "camera":  "WindowsCamera.exe",
     "windows store":  "WinStore.App.exe",
     "notepad":  "notepad.exe",
@@ -62,6 +62,7 @@ app_close = {
     "wordpad":  "wordpad.exe",
     "control panel":  "control.exe"
 }
+
 
 # Map app names to their task image names for termination
 app_processes = {
@@ -97,7 +98,8 @@ while True:
 
                 elif action == "close" and key in app_close:
                     app = app_close[key]
-                    result = os.system(f"taskkill /f /im {app}")
+                    result = os.system(f"taskkill.exe /f /im {app}")
+
                     if result == 0:
                         speak(f"Closed {key}")
                     else:
